@@ -11,4 +11,9 @@ public class TestController {
     public String hello(){
         return "hello world!";
     }
+
+    @GetMapping("update")
+    public String update() {
+        return "update";
+    }
 }

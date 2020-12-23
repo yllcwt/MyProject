@@ -27,4 +27,12 @@ public class TestController {
         model.addAllAttributes(map);
         return "delete";
     }
+    @GetMapping("select")
+    public String select(Model model){
+        Map<String, Integer> map =new HashMap<>();
+        map.put("a", 2);
+        model.addAttribute("map", map);
+        Map<String, Integer> m = (Map<String, Integer>) model.getAttribute("map");
+        return "this is a"+ m.get("a");
+    }
 }

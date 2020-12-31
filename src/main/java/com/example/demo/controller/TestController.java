@@ -32,7 +32,7 @@ public class TestController {
         Map<String, Integer> map =new HashMap<>();
         map.put("a", 2);
         model.addAttribute("map", map);
-        Map<String, Integer> m = (Map<String, Integer>) model.getAttribute("map");
-        return "this is a"+ m.get("a");
+//        Map<String, Integer> m = (Map<String, Integer>) model.getAttribute("map");
+        return "this is a"+ model.getAttribute("map");
     }
 }

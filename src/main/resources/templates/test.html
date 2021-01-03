@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="import :: head_css"></div>
+
+<body class="sticky-header">
+
+<section>
+    <div th:replace="manage :: manage(activeUri='emp')"></div>
+
+    <!-- main content start-->
+    <div class="main-content" >
+        <div th:replace="manage :: header_section"></div>
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+            dfsdfsdfsdf
+        </div>
+        <!--body wrapper end-->
+
+        <!--footer section start-->
+        <footer class="sticky-footer">
+            2020 &copy; AdminEx by ThemeBucket </a>
+        </footer>
+        <!--footer section end-->
+
+
+    </div>
+    <!-- main content end-->
+</section>
+<div th:replace="import :: head_js"></div>
+</body>
+</html>

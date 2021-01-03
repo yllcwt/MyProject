@@ -1,19 +1,21 @@
 package com.example.demo.controller;
 
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController
+@Controller
 public class TestController {
-
-    @GetMapping("hello")
-    public String hello(){
-        return "hello world!";
+    @ResponseBody
+    @GetMapping("/hello")
+    public String hello(String id){
+        return "hello world!"+ id;
     }
 
     @GetMapping("update")
@@ -34,5 +36,16 @@ public class TestController {
         model.addAttribute("map", map);
 //        Map<String, Integer> m = (Map<String, Integer>) model.getAttribute("map");
         return "this is a"+ model.getAttribute("map");
+    }
+    @RequestMapping("/success")
+    public String success(Map<Object, String> map){
+        map.put("hello", "nihao");
+        return "blank_page";
+    }
+
+    @RequestMapping("/fail")
+    public String fail(Map<Object, String> map){
+        map.put("hello", "world");
+        return "test";
     }
 }

@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
 
 @Configuration
 @Component
@@ -26,6 +26,7 @@ public class MyMvcConfig implements WebMvcConfigurer {
                 registry.addViewController("/user_manage").setViewName("test");
                 registry.addViewController("/index").setViewName("blank_page");
                 registry.addViewController("/index.html").setViewName("blank_page");
+//                registry.addViewController("/publish").setViewName("publish");
             }
         };
         return webMvcConfigurer;

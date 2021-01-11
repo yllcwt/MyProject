@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<div th:replace="import :: head_css"></div>
-
+<head>
+    <head th:insert="~{import :: head_css}"></head>
+    <head th:insert="~{import :: markdown}"></head>
+</head>
 <body class="sticky-header">
 
-<section>
     <div th:replace="manage :: manage(activeUri='publish')"></div>
 
     <!-- main content start-->
@@ -12,54 +13,49 @@
         <div th:replace="manage :: header_section"></div>
 
         <!--body wrapper start-->
-        <div class="wrapper">
-            <div class="mail-box">
-                <section class="mail-box-info">
-
-                    <section class="mail-list">
-                        <div class="compose-mail">
-                            <form role="form-horizontal" method="post">
-                                <div class="form-group">
-                                    <label for="to" class="">请输入标题:</label>
-                                    <input type="text" tabindex="1" id="to" class="form-control">
-                                </div>
-
-<!--                                <div class="compose-editor">-->
-<!--                                    <textarea class="wysihtml5 form-control" rows="9"></textarea>-->
-<!--                                </div>-->
-                                <div class="form-group" id="question-editor">
-                                    <textarea name="description" id="description" th:text="${description}" style="display:none;"
-                                              class="form-control"
-                                              cols="30"
-                                              rows="10"></textarea>
-                                </div>
-                                <script type="text/javascript">
-                                    $(function () {
-                                        var editor = editormd("question-editor", {
-                                            width: "100%",
-                                            height: 350,
-                                            path: "/js/lib/",
-                                            delay: 0,
-                                            watch: false,
-                                            placeholder: "请输入问题描述",
-                                            imageUpload: true,
-                                            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-                                            imageUploadURL: "/file/upload",
-                                        });
-                                    });
-                                </script>
-                                <hr/>
-                                <div class="compose-btn">
-                                    <button class="btn btn-primary btn-sm"><i class="fa fa-check"></i> 发布</button>
-                                </div>
-
-                            </form>
-                        </div>
-                    </section>
-
-
-                </section>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">发布文章</h3>
             </div>
+                <div class="panel-body">
+                    <form role="form-horizontal" method="post">
+                        <div class="form-group">
+                            <label for="to" class="">请输入标题:</label>
+                            <input type="text" tabindex="1" id="to" class="form-control">
+                        </div>
+
+                        <!--                                <div class="compose-editor">-->
+                        <!--                                    <textarea class="wysihtml5 form-control" rows="9"></textarea>-->
+                        <!--                                </div>-->
+                        <div class="form-group" id="question-editor" style="z-index: unset !important;">
+<!--                            <header class="panel-heading">问题补充 (必填，请参照右侧提示):</header>-->
+                            <textarea name="description" id="description" th:text="${description}" style="display:none;"
+                                      class="form-control"
+                                      cols="30"
+                                      rows="10"></textarea>
+                        </div>
+                        <script type="text/javascript">
+                            $(function () {
+                                var editor = editormd("question-editor", {
+                                    width: "100%",
+                                    height: 350,
+                                    path: "/js/lib/",
+                                    delay: 0,
+                                    watch: false,
+                                    placeholder: "请输入问题描述",
+                                    imageUpload: true,
+                                    imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                                    imageUploadURL: "/file/upload",
+                                });
+                            });
+                        </script>
+                        <hr/>
+                        <div class="compose-btn">
+                            <button class="btn btn-primary btn-sm"><i class="fa fa-check"></i> 发布</button>
+                        </div>
+
+                    </form>
+                </div>
 
         </div>
         <!--body wrapper end-->
@@ -73,7 +69,6 @@
 
     </div>
     <!-- main content end-->
-</section>
 <div th:replace="import :: head_js"></div>
 </body>
 </html>

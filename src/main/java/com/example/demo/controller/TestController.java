@@ -44,8 +44,7 @@ public class TestController {
     }
 
     @RequestMapping("/fail")
-    public String fail(Map<Object, String> map){
-        map.put("hello", "world");
-        return "test";
+    public String fail(){
+        return "index";
     }
 }
